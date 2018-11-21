@@ -93,7 +93,6 @@ int handler_pre( struct kprobe *p, struct pt_regs *regs )
 
 	tmp_argc = tmp_count( argvx, MAX_ARG_STRINGS );
 
-/* //////////////printk(KERN_INFO "%6d" ,tmp_argc); */
 
 	for ( i = 0; i < tmp_argc; i++ )
 	{
@@ -158,7 +157,7 @@ int handler_pre( struct kprobe *p, struct pt_regs *regs )
 	}
 
 
-/*--------envpx--------------*/
+	/*--------envpx--------------*/
 	len		= 0;
 	offset		= 0;
 	tmp_envpc	= tmp_count( envpx, MAX_ARG_STRINGS );
@@ -258,7 +257,7 @@ int handler_pre( struct kprobe *p, struct pt_regs *regs )
 	 * printk(KERN_INFO "|pid: %6d |tgid: %6d | parent_filename = %10s| parent_tgid: %6d  |comm: %10s |filename = %10s|argv = %s \n",
 	 *                      current->pid, current->tgid, current->parent->comm, current->parent->tgid  ,current->comm, (char *)regs->di ,total_argc_ptr);
 	 */
-	return(0);
+	
 err:
 	if ( tmp )
 	{
@@ -280,6 +279,7 @@ err:
 		kfree( total_envpc_ptr );
 		total_envpc_ptr = NULL;
 	}
+	return(0);
 }
 
 
