@@ -1,8 +1,6 @@
 #include <linux/binfmts.h>
 #include <linux/version.h>
-
 #include <linux/skbuff.h>
-
 #include <linux/module.h>
 #include <linux/kprobes.h>
 #include <linux/kallsyms.h>
