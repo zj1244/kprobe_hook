@@ -5,7 +5,6 @@
 #include <linux/kprobes.h>
 #include <linux/kallsyms.h>
 
-
 #if LINUX_VERSION_CODE >= KERNEL_VERSION( 3, 10, 0 )
 struct user_arg_ptr {
 #ifdef CONFIG_COMPAT
