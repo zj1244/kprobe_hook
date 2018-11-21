@@ -77,6 +77,7 @@ asmlinkage long sys_execve(const char __user *filename,
 - di：文件路径
 - si：命令行参数
 - dx：环境变量
+
 最后测试成功，如下图。
 ## 改造后运行效果：
 ![1.jpg](https://github.com/lovewinxp/kprobes_hook/blob/master/jpg/4.png)
