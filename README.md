@@ -1,4 +1,4 @@
-# 使用kprobes获取sys_execve参数
+# 使用kprobe获取sys_execve参数
 ## 测试环境：
 ```
 root@localhost:~/test# lsb_release -a
@@ -21,7 +21,7 @@ root@localhost:~/test# uname -r
 后来找了很多相关资料，发现jprobes在4.15以后被移除了（[这里](https://stackoverflow.com/questions/13438328/why-do-i-get-38-error-while-trying-to-insmod-a-kernel-module-probing-do-fork "这里")），自己通过如下命令印证了这个说法：
 ![1.jpg](https://github.com/lovewinxp/kprobes_hook/blob/master/jpg/3.png)
 
-从上图中可以看出kprobe还存在，我们知道kprobe也是可以完成类似效果，所以打算使用kprobe来代替jprobes。
+从上图中可以看出kprobe还存在，我们知道kprobe也是可以完成类似效果，所以打算使用kprobe来代替jprobe。
 
 ## 修改：
 从[这篇文章](http://ssdxiao.github.io/linux/2015/12/10/kprobe-example.html "这篇文章")中得知pt_regs结构体存储了函数调用中的寄存器的值，具体di、si、dx、cx分别对应函数调用的前四个参数。pt_regs结构体（/usr/src/linux-headers-4.15.0-34-generic/arch/x86/include/asm/ptrace.h）如下：
